@@ -321,3 +321,5 @@ For any issues or support, feel free to reach out via direct message (DM) or rai
 
 **Last Updated**: December 2025
 
+[![](https://jitpack.io/v/kkag840/authentication-service.svg)](https://jitpack.io/#kkag840/authentication-service)
+
