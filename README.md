@@ -293,7 +293,7 @@ Properties can be configured in multiple ways (in order of precedence):
 ```bash
 # Clean and build
 mvn clean install
-
+```
 
 ## Dependencies Management
 
