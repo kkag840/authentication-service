@@ -294,12 +294,6 @@ Properties can be configured in multiple ways (in order of precedence):
 # Clean and build
 mvn clean install
 
-# Skip tests
-mvn clean install -DskipTests
-
-# Build specific module
-mvn clean build -pl . -am
-```
 
 ## Dependencies Management
 
