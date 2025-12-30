@@ -56,18 +56,20 @@ public class JwtTokenHelper {
 
         Map<String, Object> claims = new HashMap<>();
         claims.put(USER_AGENT, userAgent);
-        claims.put(CLAIMS, token.getClaims());
+        if(Objects.nonNull(token.getClaims())&&!token.getClaims().isEmpty()) {
+            claims.put(CLAIMS, token.getClaims());
+        }
 
         String accessToken = Jwts.builder()
                 .setSubject(token.getSubject())
-                .setClaims(claims)
+                .addClaims(claims)
                 .setIssuedAt(new Date(currentTimeInMillis))
                 .setExpiration(new Date(accessTokenExpireTimeInMilliSec))
                 .signWith(getSignKey(), SignatureAlgorithm.HS512).compact();
 
         String refreshToken = Jwts.builder()
                 .setSubject(token.getSubject())
-                .setClaims(claims)
+                .addClaims(claims)
                 .setIssuedAt(new Date(currentTimeInMillis))
                 .setExpiration(new Date(currentTimeInMillis + refreshTokenExpireTimeInMilliSec))
                 .signWith(getSignKey(), SignatureAlgorithm.HS512).compact();
